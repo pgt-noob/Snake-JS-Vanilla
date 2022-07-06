@@ -1,49 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./assets/css/app.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./assets/css/app.css" />
     <title>Snake</title>
-</head>
-<body>
-    <button class="start-btn" style="left: 10px;">
-        START
-    </button>
-    <div class="main">
-        <div class="vertical-container">
-            <div class="vertical-line"></div>
-            <div class="vertical-line"></div>
-            <div class="vertical-line"></div>
-            <div class="vertical-line"></div>
-            <div class="vertical-line"></div>
-            <div class="vertical-line"></div>
-            <div class="vertical-line"></div>
-            <div class="vertical-line"></div>
-            <div class="vertical-line"></div>
-            <div class="vertical-line"></div>
-        </div>
-        <div class="horizontal-container">
-            <div class="horizontal-line"></div>
-            <div class="horizontal-line"></div>
-            <div class="horizontal-line"></div>
-            <div class="horizontal-line"></div>
-            <div class="horizontal-line"></div>
-            <div class="horizontal-line"></div>
-            <div class="horizontal-line"></div>
-            <div class="horizontal-line"></div>
-            <div class="horizontal-line"></div>
-            <div class="horizontal-line"></div>
-        </div>
-        
-        <div class="snake head"></div>
-        
+  </head>
+  <body>
+    <div class="function">
+        <button class="start-btn" style="left: 10px">RESTART</button>
+        <span class="score-board"> 0 </span>
     </div>
-        <span class="score-board">
-            0
-        </span>
+
+    <div class="main">
+      <div class="snake head"></div>
+    </div>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script type="module" src="./assets/js/main.js"></script>
-</body>
+  </body>
 </html>

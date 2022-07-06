@@ -14,8 +14,29 @@ const controller = moving()
 
 let foodLeft;
 let foodTop;
-startBtn.addEventListener('click',controller.turnRight)
-startBtn.addEventListener('click', spawning)
+startBtn.addEventListener('click',() => {
+    snake.forEach(item => {
+        if (!item.matches('.head')) {
+
+            item.parentElement.removeChild(item)
+        }
+    })
+    controller.restart();
+    leftMove = 0;
+    topMove = 0;
+    score = 0;
+    parts = [{
+        id : 1,
+        left : leftMove,
+        top : topMove
+    }];
+    snake = [...document.querySelectorAll('.snake')];
+    document.querySelector('.score-board').textContent = score;
+    head.setAttribute('style',`left: ${leftMove}px; top: ${topMove}px`);
+    head.classList.remove('disable')
+    document.querySelector('.food')?.parentElement.removeChild(document.querySelector('.food'))
+    main.classList.remove('play')
+})
 
 function moving () {
     let timeMove;
@@ -23,14 +44,20 @@ function moving () {
     let currentKey;
     return {
         clear : function () {
-            clearInterval(timeMove)
+            clearInterval(timeMove);
+        },
+        restart : function () {
+            clearInterval(timeMove);
+            prevKey = null;
         },
         turnRight : function () {
             currentKey = 'ArrowRight';
+            main.classList.add('play')
             if (currentKey === prevKey || prevKey === 'ArrowLeft') {
                 return
             }
-            this.clear();
+            if (timeMove) this.clear();
+            
             timeMove = setInterval(function () {
                 leftMove += 25;
                 moveAnimation();
@@ -46,6 +73,7 @@ function moving () {
             if (currentKey === prevKey || prevKey === 'ArrowRight') {
                 return
             }
+            main.classList.add('play')
             this.clear();
             timeMove = setInterval(function () {
                 leftMove -= 25;
@@ -62,6 +90,7 @@ function moving () {
             if (currentKey === prevKey || prevKey === 'ArrowDown') {
                 return
             }
+            main.classList.add('play')
             this.clear();
             timeMove = setInterval(function () {
                 topMove -= 25;
@@ -78,6 +107,7 @@ function moving () {
             if (currentKey === prevKey || prevKey === 'ArrowUp') {
                 return
             }
+            main.classList.add('play')
             this.clear();
             timeMove = setInterval(function () {
                 topMove +=25;
